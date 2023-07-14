@@ -49,4 +49,7 @@ export class RecipeService {
     return this.http.delete<Recipe>(`${this.apiBaseUrl}/${id}`);
   }
 
+  updateRecipe(id: number, updateRecipe: Recipe): Observable<Recipe> {
+    return this.http.put<Recipe>(`${this.apiBaseUrl}/${id}`, updateRecipe);
+  }
 }

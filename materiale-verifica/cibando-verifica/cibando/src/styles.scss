@@ -21,6 +21,10 @@ body {
   }
 }
 
+.modal-dialog {
+  overflow: auto!important;
+}
+
 .testo-evidenziato {
   background-color: yellow;
   width: 540px;

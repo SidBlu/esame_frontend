@@ -10,23 +10,28 @@
   <p-paginator [rows]="ricettePerPagina" [totalRecords]="totRicette.length" (onPageChange)="paginate($event)" (rowsPerPageOptionsChange)="ricettePerPagina"></p-paginator>
 </div>
 
-  <div class="card" *ngFor="let ricetta of ricette | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina">
-    <div class="card-image" [ngStyle]="{'background-image': 'url('+ ricetta.image + ')'}" (click)="inviaTitolo(ricetta.title)"></div>
+  <div class="card" *ngFor="let ricetta of ricette | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina; let i = index">
+    <div class="card-image" [ngClass]="{ 'disabled': isRecipeDisabled(ricetta) }" [ngStyle]="{'background-image': 'url('+ ricetta.image + ')'}" (click)="inviaTitolo(ricetta.title)"></div>
     <div class="card-body">
-      <h5 class="card-title">{{ricetta.title}}</h5>
+      <h5 class="card-title" [ngClass]="{ 'disabled': isRecipeDisabled(ricetta) }">{{ricetta.title}}</h5>
       <!-- <p class="card-text">{{ricetta.description | slice: 0:250}}...</p> -->
       <p class="card-text"><span [innerHTML]="ricetta.description |slice: 0:250"></span>...</p>
-      <div class="row">
+      <div class="row" [ngClass]="{ 'disabled': isRecipeDisabled(ricetta) }">
         <h4 class="difficolta-title">Difficoltà: </h4>
-        <div class="row">
+        <div class="row" [ngClass]="{ 'disabled': isRecipeDisabled(ricetta) }">
           <img [src]="percorsoDifficolta+ricetta.difficulty + '.png'" class="difficolta" alt="difficolta">
         </div>
       </div>
-      <div class="visualizza">
+      <div class="visualizza" [ngClass]="{ 'disabled': isRecipeDisabled(ricetta) }">
         <a class="btn btn-primary" routerLink="/ricette/dettaglio/{{ricetta.title}}/{{ricetta._id}}">Visualizza</a>
         <!-- <a class="btn btn-primary" [routerLink]="'dettaglio/' + recipe.title +'/'+ recipe._id">Dettaglio</a> -->
       </div>
-      <i class="pi pi-trash" style="cursor: pointer;" *ngIf="ruolo == 'admin'" (click)="deleteRecipe(ricetta._id)"></i>
+      <div class="icone-api">
+        <i class="pi pi-trash" style="cursor: pointer;" *ngIf="ruolo == 'admin'" (click)="openDelete(ricetta._id)"></i>
+        <i class="pi pi-eye" style="cursor: pointer;" *ngIf="ruolo == 'admin'" (click)="toggleCardVisibility(ricetta)"></i>
+        <i class="pi pi-file-edit" style="cursor: pointer;" *ngIf="ruolo == 'admin'" (click)="openUpdate(modale, this.form.value, ricetta)"></i>
+      </div>
+
     </div>
   </div>
   <ng-content select="[secondaIncursione]"></ng-content>
@@ -35,5 +40,72 @@
     </ngb-pagination> -->
     <p-paginator [rows]="ricettePerPagina" [totalRecords]="totRicette.length" (onPageChange)="paginate($event)"></p-paginator>
   </div>
-
 </div>
+
+<!-- Update Recipe Modal -->
+<ng-template #modale let-modal>
+  <section>
+    <div class="modal-header">
+      <p style="color: white; font-weight: 500;">Attenzione</p>
+      <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="modal.close()"></button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="updateRecipe(editRicetta._id, form)">
+        <!-- <img class="card-image" [src]="editRicetta.image" alt="Recipe Image"> -->
+        <div>
+          <label for="title">Titolo della ricetta</label>
+          <input type="text" id="title" name="title" class="form-control" formControlName="title">
+        </div>
+        <div>
+          <label for="description">Descrizione</label>
+          <ckeditor [editor]="editor" [config]="editorConfig" class="form-control description" formControlName="description"></ckeditor>
+        </div>
+        <div>
+          <label for="image">Scrivi l'URL della foto</label>
+          <input type="text" id="image" name="image" class="form-control" formControlName="image">
+        </div>
+        <div>
+          <label for="title">Difficoltà</label>
+          <select class="form-control select" formControlName="difficulty">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        <div>
+          <label for="title">Pubblica la ricetta</label>
+        <input type="checkbox" value="true" formControlName="published">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" (click)="modal.close()">CHIUDI</button>
+          <button type="submit" class="btn btn-primary" *ngIf="editMode">AGGIORNA RICETTA</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</ng-template>
+
+<!-- Delete Recipe Modal -->
+<ng-template #deletemodale let-modal>
+  <div class="modal-header">
+    <p style="color: white; font-weight: 500;">Attenzione</p>
+    <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="modal.close()"></button>
+  </div>
+  <div class="modal-body">
+    <p style="font-weight: 500;">Stai eliminando questa ricetta:</p>
+    <div class="container-pagination">
+      <img class="card-image" [src]="ricettaDaEliminare.image" alt="Recipe Image">
+      <div class="card-body">
+        <h5 class="card-title">{{ricettaDaEliminare.title}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close()">ANNULLA</button>
+    <button type="button" class="btn btn-dark" (click)="modal.close('delete')">ELIMINA RICETTA</button>
+  </div>
+</ng-template>
+
+<p-toast position="bottom-right"></p-toast>

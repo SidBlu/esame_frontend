@@ -26,6 +26,7 @@
       background-repeat: no-repeat;
       background-position: center;
     }
+
     .card-text {
       font-size: 10px;
       text-align: justify;
@@ -62,6 +63,56 @@
 
 }
 
+.icone-api {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+i.pi.pi-trash {
+  border-radius: 50%;
+  padding: 15px;
+  background-color: $primary-color-2;
+  border: 2px solid $primary-color-1;
+  margin-right: 2rem;
+  color: $primary-color-1;
+}
+
+i.pi.pi-eye {
+  border-radius: 50%;
+  padding: 15px;
+  background-color: $primary-color-2;
+  border: 2px solid $primary-color-1;
+  margin-right: 2rem;
+  color: $primary-color-1;
+}
+
+i.pi.pi-file-edit {
+  border-radius: 50%;
+  padding: 15px;
+  background-color: $primary-color-2;
+  border: 2px solid $primary-color-1;
+  margin-right: 2rem;
+  color: $primary-color-1;
+}
+
+i.pi.pi-trash:hover {
+  background-color: $primary-color-1;
+  color: white;
+}
+
+i.pi.pi-eye:hover {
+  background-color: $primary-color-1;
+  color: white;
+}
+
+i.pi.pi-file-edit:hover {
+  background-color: $primary-color-1;
+  color: white;
+}
+
 .container-pagination {
   width: 100%;
   text-align: center;
@@ -69,7 +120,22 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 
+img.card-image {
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  border: 3px solid;
+  margin-bottom: 1.5rem;
+}
+
+h5.card-title {
+  color: $primary-color-1;
+}
 
 @media only screen and (min-width: 650px) and (max-width: 959px){
   .card {
