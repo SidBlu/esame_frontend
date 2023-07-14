@@ -1,0 +1,17 @@
+<div id="contenitore" *ngIf="ricette.length > 0">
+  <div class="container-card" *ngFor="let ricetta of ricette">
+    <div class="card">
+      <div class="card-image" [ngStyle]="{ 'background-image': 'url(' + ricetta.image + ')' }"></div>
+      <div class="card-body">
+        <h5 class="card-title">{{ricetta.title}}</h5>
+        <p class="card-text">{{ricetta.description | slice: 0:250 }}...</p>
+        <a href="#" class="btn btn-primary" routerLink="/dettaglio/{{ricetta._id}}">Visualizza</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="ricette.length == 0" class="not-found">
+    Siamo spiacenti ma non ci sono ricette con: <strong>{{testo}}</strong>
+   <div ngNonBindable>Per far comparire le variabili in angular devi metetre la variabile nelle doppie graffe esempio {{nomeVariabile}}</div>
+
+</div>

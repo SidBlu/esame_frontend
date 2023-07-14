@@ -1,0 +1,49 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+input.ng-dirty {
+  border: 1px solid rgb(246, 255, 0);
+}
+
+input.ng-valid {
+  border: 1px solid rgb(16, 194, 43);
+}
+.correct {
+  background-color: rgb(16, 194, 43);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.is-danger{
+  font-size: 11px;
+  color: red;
+  font-weight: bold;
+  display: inline;
+  margin-left: 20px;
+}
+:host ::ng-deep .p-dropdown {
+  width: 14rem;
+}
+
+
+@media only screen and (min-width: 650px) and (max-width: 991px){
+ .col-5 {
+  width: 95%!important;
+ }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 649px){
+  .col-5 {
+    width: 95%!important;
+   }
+
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px){
+  .col-5 {
+    width: 95%!important;
+   }
+
+}

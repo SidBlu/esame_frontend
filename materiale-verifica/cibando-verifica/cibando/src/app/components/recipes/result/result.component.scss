@@ -1,0 +1,92 @@
+.num-ricette {
+  text-align: center;
+  font-size: 19px;
+}
+#contenitore {
+  width: 100%;
+  float: left;
+  height: 70vh;
+}
+.container-card {
+  display: block;
+  float: left;
+  width: 23%;
+  margin-left: 1.5%;
+
+  .card-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #8e210b;
+  }
+
+  .card-image {
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .card-text {
+    text-align: justify;
+  }
+}
+
+.container-pagination {
+  display: inline-flex;
+  /* text-align: center; */
+  width: 100%;
+  /* float: left; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  height: 90px;
+}
+
+
+a.btn.btn-primary.delete {
+  background: #451006;
+  border: 1px solid #451006;
+  margin-left: 16px;
+}
+
+a.btn.btn-primary {
+  background: #8e210b;
+  border: 1px solid #8e210b;
+}
+
+.not-found {
+  height: 62vh;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 83px;
+}
+@media only screen and (min-width: 481px) and (max-width: 959px){
+  .container-card {
+    display: block;
+    float: left;
+    width: 31%;
+    margin-left: 1.5%;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 480px){
+  .container-card {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-left: 0%;
+    margin-bottom: 23px;
+  }
+
+  .btn.btn-primary {
+    display: flex;
+    text-align: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    margin-left: auto;
+    margin-top: 23px;
+  }
+}

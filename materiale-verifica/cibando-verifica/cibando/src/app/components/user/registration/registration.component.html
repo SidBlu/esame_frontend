@@ -1,0 +1,198 @@
+<!-- TEMPLATE DRIVEN
+   <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body">
+            <div class="row justify-content-center">
+              <div class="col-5">
+
+                <p class="text-center h1 fw-bold mb-5 mx-md-4 mt-4">Registrati</p>
+
+                <form class="mx-md-4" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="text" id="name" name="name" class="form-control" ngModel />
+                      <label class="form-label" for="name">Il tuo nome</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="email" id="email" name="emaillll" class="form-control" ngModel />
+                      <label class="form-label" for="email">La tua email</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="password" name="password" class="form-control" ngModel  />
+                      <label class="form-label" for="password">Password</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+
+                    <div class="form-outline flex-fill mb-0">
+                      <input type="password" id="ripeti" name="ripeti" class="form-control" ngModel/>
+                      <label class="form-label" for="ripeti">Ripeti password</label>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="accetto" name="accetto" ngModel/>
+                    <label class="form-check-label" for="accetto">
+                      Dichiaro di accettare i <a href="#">Termini del servizio</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Registrati</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-lg-6 d-flex align-items-center order-1 order-lg-2">
+                <img src="https://dam.regione.lombardia.it/images/dieta-2_1196.jpg"
+                  class="img-fluid" alt="foto">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card text-black" style="border-radius: 25px">
+        <div class="card-body">
+          <div class="row justify-content-center">
+            <div class="col-5">
+              <p class="text-center h1 fw-bold mb-5 mx-md-4 mt-4">Registrati</p>
+              <form class="mx-md-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="d-flex flex-row align-items-center mb-4" >
+                  <div class="form-outline flex-fill mb-0">
+                    <input type="text" id="name" class="form-control" formControlName="name" appChangeColor/>
+                    <label class="form-label" for="name">Il tuo nome</label>
+                    <p class="help is-danger" *ngIf="form.controls['name'].hasError('minlength')">
+                      Il campo nome deve contenere minimo 3 caratteri
+                    </p>
+                    <p class="help is-danger" *ngIf="
+                        !form.controls.name.valid && form.get('name').touched
+                      ">
+                      Il campo è obbligatorio
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <div class="form-outline flex-fill mb-0">
+                    <input type="email" id="email" class="form-control" formControlName="email"/>
+                    <label class="form-label" for="email">La tua email</label>
+                    <p class="help is-danger" *ngIf="form.controls.email.hasError('email')">
+                      Il campo email è scritto in modo errato
+                    </p>
+                    <p class="help is-danger" *ngIf="
+                        form.get('email').value === '' &&
+                        form.controls.email.touched
+                      ">
+                      Il campo è obbligatorio
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <div class="form-outline flex-fill mb-0">
+                    <!-- <input type="password" id="password" class="form-control" formControlName="password" required="required"> -->
+                    <p class="help is-danger" *ngIf="form.controls['password'].hasError('pattern')">
+                      Il campo password deve contenere: 1 Maiuscola, 1
+                      Minuscola, 1 Numero ed un carattere speciale
+                    </p>
+
+                    <p-password [toggleMask]="true" class="form-control" formControlName="password"
+                      strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$"></p-password>
+                    <label class="form-label" for="password">Password</label>
+                    <p class="help is-danger" *ngIf="
+                        !form.get('password').valid &&
+                        form.get('password').touched
+                      ">
+                      Il campo è obbligatorio
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <div class="form-outline flex-fill mb-0">
+                    <input type="password" id="ripetiPassword" class="form-control" formControlName="ripetiPassword"
+                      required />
+                    <label class="form-label" for="ripetiPassword">Ripeti password</label>
+                    <!-- <p class="help is-danger" *ngIf="convalidaPassword">La password inserita non combacia</p> -->
+                    <p class="help is-danger" *ngIf="
+                        form.getError('diversa') &&
+                        form.get('ripetiPassword').touched
+                      ">
+                      La password inserita non combacia
+                    </p>
+                    <p class="help is-danger" *ngIf="
+                        !form.get('ripetiPassword').valid &&
+                        form.get('ripetiPassword').touched
+                      ">
+                      Il campo è obbligatorio
+                    </p>
+                  </div>
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input class="form-check-input me-2" type="checkbox" value="" id="accetto"
+                    formControlName="accetto" />
+                  <label class="form-check-label" for="accetto">
+                    Dichiaro di accettare i
+                    <a href="#">Termini del servizio</a> FORM {{ form.valid }}
+                  </label>
+                  <p class="help is-danger" *ngIf="
+                      !form.get('accetto').valid && form.get('accetto').touched
+                    ">
+                    Il campo è obbligatorio
+                  </p>
+                </div>
+
+                <div class="accordion" id="accordionServizi" style="display: block; margin-bottom: 30px;">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#terminiServizio" aria-expanded="false" aria-controls="terminiServizio">
+                        Visualizza i termini del servizio
+                      </button>
+                    </h2>
+                    <div id="terminiServizio" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionServizi">
+                      <div class="accordion-body">
+                        <strong>Termini del servizio</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="help correct" *ngIf="form.valid">
+                  Il form è corretto, adesso può essere inviato
+                </p>
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                  <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">
+                    Registrati
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center order-1 order-lg-2">
+              <img src="https://dam.regione.lombardia.it/images/dieta-2_1196.jpg" class="img-fluid" alt="foto" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<h2>Le nostre ricette</h2>
+<div id="mostra-titolo">
+  <span *ngIf="titoloRicevuto"> Hai cliccato la ricetta: <strong>{{titoloRicevuto}}</strong></span>
+</div>
+<app-recipe-card (messaggio)="riceviTitolo($event)"></app-recipe-card>

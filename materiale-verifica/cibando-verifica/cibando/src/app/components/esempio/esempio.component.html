@@ -1,0 +1,49 @@
+
+ <!-- <div>
+  <h2>I nostri clienti</h2>
+  <ul>
+    <li *ngFor="let cliente of gruppiCombi$ | async; let i=index ">
+      nome cliente: {{cliente | json}}
+    </li>
+  </ul>
+</div> -->
+
+ <div>
+  <div *ngFor="let gruppo of gruppi; let i=index">
+    <h2>Gruppo {{i}}</h2>
+      <ul>
+        <li *ngFor="let cliente of gruppo">
+          nome cliente: {{cliente.name || cliente}}
+        </li>
+      </ul>
+    </div>
+</div>
+
+
+
+<!-- <div>
+  <h2>Gruppo uno</h2>
+    <ul>
+      <li *ngFor="let cliente of gruppi[0]">
+        nome cliente: {{cliente.name || cliente}}
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Gruppo due</h2>
+      <ul>
+        <li *ngFor="let cliente of gruppi[1]">
+          nome cliente: {{cliente.name || cliente}}
+        </li>
+      </ul>
+  </div>
+
+  <div>
+    <h2>Gruppo tre</h2>
+        <ul>
+          <li *ngFor="let cliente of gruppi[2]">
+            nome cliente: {{cliente.name || cliente}}
+          </li>
+        </ul>
+  </div> -->

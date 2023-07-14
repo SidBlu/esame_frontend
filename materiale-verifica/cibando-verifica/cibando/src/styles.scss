@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "./app/styles/colori.scss";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+#super-contenitore {
+  max-width: 1400px!important;
+  margin: auto;
+}
+#main-container {
+  padding: 15px;
+
+  p {
+    text-align: justify;
+    font-size: 13px;
+  }
+}
+
+.testo-evidenziato {
+  background-color: yellow;
+  width: 540px;
+}
+
+// footer {
+//   height: 100px;
+//   width: 100%;
+//   background-color: #8e210b!important;
+//   position: relative;
+//   bottom: 0px
+// }
+.modal-header, .modal-footer {
+  background-color: #8e210b !important;
+}
+footer {
+  height: 100px;
+  width: 100%;
+  background-color: #8e210b !important;
+  /* position: relative; */
+  /* bottom: 0px; */
+  /* top: 70%; */
+  display: flex;
+  align-items: flex-end;
+}
+
+.btn-primary {
+  background-color: #8e210b!important;
+  border: none!important;
+}
+// INIZIO stili per BootStrap Carousel
+ngb-carousel.carousel.slide {
+  margin-top: -19px;
+  margin-bottom: 20px;
+
+  .carousel-caption {
+    top: 26rem;
+
+    h3 {
+      font-family: "Homemade Apple", cursive;
+      font-size: 40px;
+      text-shadow: black 2px 2px 3px;
+    }
+
+    h2 {
+      font-size: 16px;
+      text-shadow: black 0px 0px 3px;
+      font-weight: lighter;
+    }
+  }
+
+  .carousel-control-next, .carousel-control-prev {
+    opacity: 1!important;
+
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+}
+.single-image img {
+  width: 100%;
+  margin-top: -19px;
+  margin-bottom: 20px;
+}
+// FINE stili per BootStrap Carousel
+
+.p-password {
+  display: block!important;
+}
+.p-inputtext {
+  width: 100%!important;
+}
+.p-password-input {
+  width: 100%!important;
+}
+
+.page-link {
+  color: #8e210b!important;
+
+  :focus {
+    outline: 0;
+    box-shadow: none!important;
+  }
+}
+
+
+.page-link.active, .active > .page-link {
+  z-index: 3;
+  color: #ffffff!important;
+  background-color: #8e210b!important;
+  border-color: #8e210b!important;
+}
+
+ngb-pagination {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  justify-content: space-between!important;
+}
+
+.navbar-toggler {
+  margin-right: 20px;
+}
+
+
+.description .ck-editor__editable {
+  min-height: 200px!important;
+  max-height: 200px!important;
+}
+
+// .container-cards {
+//   margin-bottom: 20px;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: center;
+
+//   .card {
+//     width: 23%;
+//     margin-left: 1.5%;
+//     float: left;
+//     margin-bottom: 20px;
+
+//     .card-title {
+//       font-weight: bold;
+//       font-size: 16px;
+//       color: $primary-color-1;
+//     }
+
+
+//     .card-text {
+//       font-size: 10px;
+//       text-align: justify;
+//     }
+
+//     a.btn.btn-primary {
+//       background-color: $primary-color-1;
+//       border: none;
+//     }
+//   }
+//   .difficolta {
+//     width: 120px;
+//     margin-top: 13px;
+//     margin-bottom: 10px;
+//     margin-left: -3px;
+//   }
+//   .difficolta-title {
+//     margin-top: 0px;
+//     margin-bottom: -12px;
+//     padding-bottom: 0px;
+//     font-weight: 600;
+//     font-size: 14px;
+//   }
+
+//   .visualizza {
+//     text-align: center;
+//     margin-bottom: -10px;
+//     margin-top: 20px;
+
+//     a.btn.btn-primary {
+//       width: 100%;
+//   }
+//   }
+
+// }
+
+// .card-image {
+//   height: 200px;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center;
+// }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

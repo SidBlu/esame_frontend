@@ -1,0 +1,28 @@
+#contenitore {
+ // height: 70vh;
+
+  form {
+    width: 80%;
+    /* margin: auto; */
+    //margin-top: 80px;
+    float: left;
+    margin-left: 10%;
+
+    button.btn.btn-primary.btn-block.mb-4 {
+      width: 100%;
+  }
+  }
+
+  div#registrati {
+    display: block;
+    position: relative;
+    clear: both;
+    margin: auto;
+    text-align: center;
+
+    a{
+      text-decoration: none;
+    }
+}
+
+}

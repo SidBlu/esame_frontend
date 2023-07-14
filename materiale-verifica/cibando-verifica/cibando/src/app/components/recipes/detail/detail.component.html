@@ -1,0 +1,26 @@
+<div *ngIf="ricetta">
+  <div class="container-image" [ngStyle]="{ 'background-image': 'url(' + ricetta.image + ')' }"></div>
+  <div id="super-contenitore">
+    <div class="container-fluid">
+      <div class="row">
+        <h2 class="title-summary">{{ ricetta.title }}</h2>
+        <div class="col-auto subTopic-description">
+          <span [innerHTML]="ricetta.description"></span>
+        </div>
+      </div>
+      <div class="row">
+        <h4 class="difficolta-title">Difficoltà: </h4>
+        <div class="row">
+          <img [src]="percorsoDifficolta+ricetta?.difficulty + '.png'" class="difficolta" alt="difficolta">
+        </div>
+      </div>
+      <div class="row date">Ricetta pubblicata il {{ ricetta.date | date }}</div>
+    </div>
+  </div>
+  <div *ngIf="!ricetta">
+    <div class="not-found">
+      <h4>Spiacenti ricetta non trovata</h4>
+    </div>
+  </div>
+    </div>
+

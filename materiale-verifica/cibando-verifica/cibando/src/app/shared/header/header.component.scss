@@ -1,0 +1,96 @@
+header {
+  background-color: #8e210b!important;
+  padding-left: 20px;
+  margin-bottom: 20px;
+
+  .bg-dark {
+    background-color: #8e210b!important;
+
+    .logo{
+      width: 80px;
+      margin-right: 10px;
+    }
+  }
+
+  fa-icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+
+  .navbar-brand span {
+    display: block;
+    float: right;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 900;
+    margin-right: 45px;
+  }
+
+  li.nav-item.accedi {
+    margin-top: 5px;
+
+
+  }
+
+.user {
+  margin-left: 10px;
+  color: white;
+  margin-top: 13px;
+
+  .name {
+    margin-right: 10px;
+    margin-left: 5px;
+  }
+
+  a {
+    color: white!important;
+    margin-left: 5px;
+    text-decoration: none;
+    cursor: pointer!important;
+  }
+
+  .esci {
+    background-color: white;
+    padding: 7px;
+    color: #8e210b !important;
+    border-radius: 50%;
+    display: flex;
+    float: right;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -8px;
+    font-weight: bold;
+    left: 18px;
+    font-size: 14px;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+  }
+}
+}
+
+
+
+#container-search {
+  text-align: right;
+  margin-right: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  .cerca {
+    width: 70%;
+    float: left;
+  }
+}
+
+.pi-search {
+  font-size: 1.3rem!important;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 50%;
+}

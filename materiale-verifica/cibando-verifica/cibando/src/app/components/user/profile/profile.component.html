@@ -1,0 +1,11 @@
+<section *ngIf="user">
+    <h2>Ciao {{user.name}}</h2>
+    <h3>Ecco il riepilogo dei tuoi dati</h3>
+  <ul class="elencoFLex">
+    <li><strong>Nome: </strong> {{user.name}}</li>
+    <li><strong>Email: </strong> {{user.email}}</li>
+    <li><strong>Ruolo: </strong> {{user.role}}</li>
+    <li><strong>Iscritto dal: </strong> {{dataRegistrazione}}</li>
+    <li><strong>Ultimo aggiornamento: </strong> {{dataAggiornamento}}</li>
+  </ul>
+</section>

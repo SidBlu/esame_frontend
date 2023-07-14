@@ -1,0 +1,63 @@
+<section>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="title">Titolo della ricetta</label>
+      <input type="text" id="title" name="title" class="form-control" formControlName="title" required>
+    </div>
+    <div>
+      <label for="description">Descrizione</label>
+      <ckeditor [editor]="editor" [config]="editorConfig" class="form-control description" formControlName="description"></ckeditor>
+    </div>
+    <div>
+      <label for="image">Scrivi l'URL della foto</label>
+      <input type="text" id="image" name="image" class="form-control" formControlName="image">
+    </div>
+    <div>
+      <label for="title">Difficoltà</label>
+      <select class="form-control select" formControlName="difficulty">
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+    <div>
+      <label for="title">Pubblica la ricetta</label>
+    <input type="checkbox" value="true" formControlName="published">
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-primary" (click)="open(modale, this.form.value)">INSERISCI RICETTA</button>
+    </div>
+
+  </form>
+</section>
+
+
+
+<ng-template #modale let-modal>
+  <div class="modal-header">
+    <button type="button" class="btn-close btn-close-white" aria-label="Close" (click)="modal.close()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="container-pagination">
+      <div class="card">
+        <div class="card-image" [ngStyle]="{'background-image': 'url('+ nuovaRicetta.image + ')'}"></div>
+        <div class="card-body">
+          <h5 class="card-title">{{nuovaRicetta.title}}</h5>
+          <!-- <p class="card-text">{{nuovaRicetta.description | slice: 0:250}}...</p> -->
+          <p class="card-text"><span [innerHTML]="nuovaRicetta.description |slice: 0:250"></span>...</p>
+          <div class="row">
+            <h4 class="difficolta-title">Difficoltà: </h4>
+            <div class="row">
+              <img [src]="percorsoDifficolta+nuovaRicetta.difficulty + '.png'" class="difficolta" alt="difficolta">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-dark" (click)="modal.close()" ngbAutofocus>CHIUDI</button>
+  </div>
+</ng-template>

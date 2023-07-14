@@ -1,0 +1,13 @@
+@import '../../../styles/colori.scss';
+
+section {
+  width: 60%;
+  margin: auto;
+  height: 65vh;
+  margin-top: 10%;
+
+  h3 {
+    font-size: 16px;
+    color: $primary-color-1!important;
+  }
+}

@@ -1,0 +1,73 @@
+@import '../../../styles/colori.scss';
+
+section {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 20px;
+  height: 70vh;
+  margin-top: 20px;
+}
+
+.container-cards {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .visualizza {
+    text-align: center;
+    margin-bottom: -10px;
+    margin-top: 20px;
+
+    a.btn.btn-primary {
+      width: 100%;
+  }
+  }
+
+}
+.card {
+  width: 100%;
+  margin-left: 0%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: $primary-color-1;
+}
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.card-text {
+  font-size: 10px;
+  text-align: justify;
+}
+.container-pagination {
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+.difficolta {
+  width: 120px;
+  margin-top: 13px;
+  margin-bottom: 10px;
+  margin-left: -3px;
+}
+.difficolta-title {
+  margin-top: 0px;
+  margin-bottom: -12px;
+  padding-bottom: 0px;
+  font-weight: 600;
+  font-size: 14px;
+}
+a.btn.btn-primary {
+  background-color: $primary-color-1;
+  border: none;
+}
